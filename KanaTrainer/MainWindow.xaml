@@ -1,0 +1,29 @@
+﻿<Window x:Class="KanaTrainer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KanaTrainer"
+        xmlns:viewmodels="clr-namespace:KanaTrainer.ViewModels"
+        xmlns:views="clr-namespace:KanaTrainer.Views"
+        xmlns:components="clr-namespace:KanaTrainer.Components"
+        mc:Ignorable="d"
+        Title="Kana Trainer" Height="650" Width="1200">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:KanaTrainerViewModel}">
+                <views:KanaTrainerView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:TrainingSettingsViewModel}">
+                <views:TrainingSettingsView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
+                <components:Layout />
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </Grid>
+    
+</Window>
